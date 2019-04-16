@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  position: relative;
+  margin: 0 auto;
+  padding: 3em 1em;
+  color: #fff;
+  text-align: center;
+  background: url(./images/banner.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.App-title {
+  font-size: 3em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.App-search {
+  max-width: 400px;
+  margin: auto;
+}
+
+.form-control {
+  border-radius: 0px;
+}
