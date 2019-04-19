@@ -29,7 +29,9 @@ const exportJSON = events => {
   )}`;
   tempEl.target = "_blank";
   tempEl.download = `events-${Date.now()}.json`;
+  document.body.appendChild(tempEl); 
   tempEl.click();
+  document.body.removeChild(tempEl);
 };
 
 const submitBug = events => {
