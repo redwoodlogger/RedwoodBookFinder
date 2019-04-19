@@ -5,11 +5,13 @@ import "./Gallery.css";
 // TODO: Can this component be functional instead?
 class Gallery extends Component {
   render() {
+    console.log(this.props.items)
     return (
       <div>
         {this.props.items !== undefined &&
           this.props.items.map((item, index) => {
-            let { title, imageLinks, infoLink } = item.volumeInfo;
+            let { title, imageLinks, infoLink } = item;
+            console.log(JSON.stringify({title, imageLinks, infoLink}))
             return (
               <div className="book">
                 <img
