@@ -64,7 +64,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Book Finder</h1>
-          <button onClick={submitBug}>Submit bug</button>
+          <button className="button" onClick={submitBug}>Report Bug</button>
           <FormGroup className="App-search">
             <InputGroup>
               <FormControl
