@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import book from "../images/book.svg";
 import "./Gallery.css";
-import jpg from "./1.jpg"
 
 // TODO: Can this component be functional instead?
 class Gallery extends Component {
@@ -15,7 +14,7 @@ class Gallery extends Component {
             return (
               <div className="book">
                 <img
-                  src={require(`./${index+1}.jpg`)}
+                  src={`${index+1}.jpg`}
                   alt={`Pictured: The cover for the book ${title}.`}
                   className="bookCover"
                 />
