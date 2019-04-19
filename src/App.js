@@ -5,6 +5,7 @@ import { FormGroup, FormControl, InputGroup, Glyphicon } from "react-bootstrap";
 import Gallery from "./components/Gallery.js";
 import rrwebPlayer from "rrweb-player";
 import { record } from "rrweb";
+import BugModal from './BugModal';
 
 
 // We use a two-dimensional array to store multiple events array
@@ -21,22 +22,6 @@ record({
   },
   checkoutEveryNms: 2 * 60 * 1000 // checkout every 2 minutes
 });
-
-const exportJSON = events => {
-  const tempEl = document.createElement("a");
-  tempEl.href = `data:application/json;charset=utf-8,${encodeURIComponent(
-    events
-  )}`;
-  tempEl.target = "_blank";
-  tempEl.download = `events-${Date.now()}.json`;
-  document.body.appendChild(tempEl); 
-  tempEl.click();
-  document.body.removeChild(tempEl);
-};
-
-const submitBug = events => {
-  exportJSON(JSON.stringify(eventsMatrix[eventsMatrix.length - 1]));
-};
 
 const mockData = [{"title":"Advanced Engineering Chemistry","imageLinks":{"thumbnail":"1.jpg"},"infoLink":"http://books.google.com.sg/books?id=Cx0QPbyFQ3MC&dq=redwood&hl=&source=gbs_api"},
 {"title":"Pocket Flora of the Redwood Forest","imageLinks":{"thumbnail":"2.jpg"},"infoLink":"http://books.google.com.sg/books?id=E4_Qj-NK1fQC&dq=redwood&hl=&source=gbs_api"},
@@ -56,13 +41,35 @@ class App extends Component {
       title: "",
       author: "",
       publisher: "",
-      items: []
+      items: [],
+      openBugModal: false
     };
   }
+
+  exportJSON = events => {
+    const tempEl = document.createElement("a");
+    tempEl.href = `data:application/json;charset=utf-8,${encodeURIComponent(
+      events
+    )}`;
+    tempEl.target = "_blank";
+    tempEl.download = `events-${Date.now()}.json`;
+    document.body.appendChild(tempEl); 
+    tempEl.click();
+    document.body.removeChild(tempEl);
+  };
 
   search() {
     let items = mockData;
     this.setState({ items });
+  }
+
+  submitBug = events => {
+    // exportJSON(JSON.stringify(eventsMatrix[eventsMatrix.length - 1]));
+    this.setState({openBugModal: true});
+  };
+
+  handleClose = () => {
+    this.setState({openBugModal: false});
   }
 
   render() {
@@ -70,7 +77,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Book Finder</h1>
-          <button className="button" onClick={submitBug}>Report Bug</button>
+          <button className="button" onClick={this.submitBug}>Report Bug</button>
+          <BugModal open={this.state.openBugModal} 
+                    exportJSON={this.exportJSON} 
+                    handleClose={this.handleClose}>
+          </BugModal>
           <FormGroup className="App-search">
             <InputGroup>
               <FormControl
