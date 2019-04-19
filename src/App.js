@@ -3,6 +3,38 @@ import "./App.css";
 import "./util.css";
 import { FormGroup, FormControl, InputGroup, Glyphicon } from "react-bootstrap";
 import Gallery from "./components/Gallery.js";
+import rrwebPlayer from "rrweb-player";
+import { record } from "rrweb";
+
+
+// We use a two-dimensional array to store multiple events array
+const eventsMatrix = [[]];
+
+record({
+  emit(event, isCheckout) {
+    // isCheckout is a flag to tell you the events has been checkout
+    if (isCheckout) {
+      eventsMatrix.push([]);
+    }
+    const lastEvents = eventsMatrix[eventsMatrix.length - 1];
+    lastEvents.push(event);
+  },
+  checkoutEveryNms: 2 * 60 * 1000 // checkout every 2 minutes
+});
+
+const exportJSON = events => {
+  const tempEl = document.createElement("a");
+  tempEl.href = `data:application/json;charset=utf-8,${encodeURIComponent(
+    events
+  )}`;
+  tempEl.target = "_blank";
+  tempEl.download = `events-${Date.now()}.json`;
+  tempEl.click();
+};
+
+const submitBug = events => {
+  exportJSON(JSON.stringify(eventsMatrix[eventsMatrix.length - 1]));
+};
 
 class App extends Component {
   constructor(props) {
@@ -32,6 +64,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Book Finder</h1>
+          <button onClick={submitBug}>Submit bug</button>
           <FormGroup className="App-search">
             <InputGroup>
               <FormControl
