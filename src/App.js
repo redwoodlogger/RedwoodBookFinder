@@ -4,16 +4,16 @@ import "./util.css";
 import { FormGroup, FormControl, InputGroup, Glyphicon } from "react-bootstrap";
 import Gallery from "./components/Gallery.js";
 
-const mockData = [{"title":"Advanced Engineering Chemistry","imageLinks":{"thumbnail":"http://books.google.com/books/content?id=Cx0QPbyFQ3MC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"},"infoLink":"http://books.google.com.sg/books?id=Cx0QPbyFQ3MC&dq=redwood&hl=&source=gbs_api"},
-{"title":"Pocket Flora of the Redwood Forest","imageLinks":{"thumbnail":"http://books.google.com/books/content?id=E4_Qj-NK1fQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"},"infoLink":"http://books.google.com.sg/books?id=E4_Qj-NK1fQC&dq=redwood&hl=&source=gbs_api"},
-{"title":"Redwood Curtain","imageLinks":{"thumbnail":"http://books.google.com/books/content?id=_yOWzQGziPIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"},"infoLink":"http://books.google.com.sg/books?id=_yOWzQGziPIC&dq=redwood&hl=&source=gbs_api"},
-{"title":"Redwood","imageLinks":{"thumbnail":"http://books.google.com/books/content?id=kW-OhOw9ghUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"},"infoLink":"http://books.google.com.sg/books?id=kW-OhOw9ghUC&dq=redwood&hl=&source=gbs_api"},
-{"title":"Redwood National Park (N.P.), General Management Plan (GMP)","imageLinks":{"thumbnail":"http://books.google.com/books/content?id=vi83AQAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"},"infoLink":"https://play.google.com/store/books/details?id=vi83AQAAMAAJ&source=gbs_api"},
-{"title":"Redwood National and State Parks, General Management Plan","imageLinks":{"thumbnail":"http://books.google.com/books/content?id=5Ns3AQAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"},"infoLink":"https://play.google.com/store/books/details?id=5Ns3AQAAMAAJ&source=gbs_api"},
-{"title":"Port of Redwood City Levee Project","imageLinks":{"thumbnail":"http://books.google.com/books/content?id=Qjk0AQAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"},"infoLink":"https://play.google.com/store/books/details?id=Qjk0AQAAMAAJ&source=gbs_api"},
-{"title":"Redwood","imageLinks":{"thumbnail":"http://books.google.com/books/content?id=AfJE_SEiPLQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"},"infoLink":"https://play.google.com/store/books/details?id=AfJE_SEiPLQC&source=gbs_api"},
-{"title":"Foothill Blvd, Rogue River and Redwood Hwy, Josephine County","imageLinks":{"thumbnail":"http://books.google.com/books/content?id=yqw1AQAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"},"infoLink":"https://play.google.com/store/books/details?id=yqw1AQAAMAAJ&source=gbs_api"},
-{"title":"Redwood City","imageLinks":{"thumbnail":"http://books.google.com/books/content?id=WlP8AFci2qwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"},"infoLink":"http://books.google.com.sg/books?id=WlP8AFci2qwC&dq=redwood&hl=&source=gbs_api"}]
+const mockData = [{"title":"Advanced Engineering Chemistry","imageLinks":{"thumbnail":"1.jpg"},"infoLink":"http://books.google.com.sg/books?id=Cx0QPbyFQ3MC&dq=redwood&hl=&source=gbs_api"},
+{"title":"Pocket Flora of the Redwood Forest","imageLinks":{"thumbnail":"2.jpg"},"infoLink":"http://books.google.com.sg/books?id=E4_Qj-NK1fQC&dq=redwood&hl=&source=gbs_api"},
+{"title":"Redwood Curtain","imageLinks":{"thumbnail":"3.jpg"},"infoLink":"http://books.google.com.sg/books?id=_yOWzQGziPIC&dq=redwood&hl=&source=gbs_api"},
+{"title":"Redwood","imageLinks":{"thumbnail":"4.jpg"},"infoLink":"http://books.google.com.sg/books?id=kW-OhOw9ghUC&dq=redwood&hl=&source=gbs_api"},
+{"title":"Redwood National Park (N.P.), General Management Plan (GMP)","imageLinks":{"thumbnail":"5.jpg"},"infoLink":"https://play.google.com/store/books/details?id=vi83AQAAMAAJ&source=gbs_api"},
+{"title":"Redwood National and State Parks, General Management Plan","imageLinks":{"thumbnail":"6.jpg"},"infoLink":"https://play.google.com/store/books/details?id=5Ns3AQAAMAAJ&source=gbs_api"},
+{"title":"Port of Redwood City Levee Project","imageLinks":{"thumbnail":"7.jpg"},"infoLink":"https://play.google.com/store/books/details?id=Qjk0AQAAMAAJ&source=gbs_api"},
+{"title":"Redwood","imageLinks":{"thumbnail":"8.jpg"},"infoLink":"https://play.google.com/store/books/details?id=AfJE_SEiPLQC&source=gbs_api"},
+{"title":"Foothill Blvd, Rogue River and Redwood Hwy, Josephine County","imageLinks":{"thumbnail":"9.jpg"},"infoLink":"https://play.google.com/store/books/details?id=yqw1AQAAMAAJ&source=gbs_api"},
+{"title":"Redwood City","imageLinks":{"thumbnail":"10.jpg"},"infoLink":"http://books.google.com.sg/books?id=WlP8AFci2qwC&dq=redwood&hl=&source=gbs_api"}]
 
 class App extends Component {
   constructor(props) {
