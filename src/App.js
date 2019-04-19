@@ -38,6 +38,17 @@ const submitBug = events => {
   exportJSON(JSON.stringify(eventsMatrix[eventsMatrix.length - 1]));
 };
 
+const mockData = [{"title":"Advanced Engineering Chemistry","imageLinks":{"thumbnail":"1.jpg"},"infoLink":"http://books.google.com.sg/books?id=Cx0QPbyFQ3MC&dq=redwood&hl=&source=gbs_api"},
+{"title":"Pocket Flora of the Redwood Forest","imageLinks":{"thumbnail":"2.jpg"},"infoLink":"http://books.google.com.sg/books?id=E4_Qj-NK1fQC&dq=redwood&hl=&source=gbs_api"},
+{"title":"Redwood Curtain","imageLinks":{"thumbnail":"3.jpg"},"infoLink":"http://books.google.com.sg/books?id=_yOWzQGziPIC&dq=redwood&hl=&source=gbs_api"},
+{"title":"Redwood","imageLinks":{"thumbnail":"4.jpg"},"infoLink":"http://books.google.com.sg/books?id=kW-OhOw9ghUC&dq=redwood&hl=&source=gbs_api"},
+{"title":"Redwood National Park (N.P.), General Management Plan (GMP)","imageLinks":{"thumbnail":"5.jpg"},"infoLink":"https://play.google.com/store/books/details?id=vi83AQAAMAAJ&source=gbs_api"},
+{"title":"Redwood National and State Parks, General Management Plan","imageLinks":{"thumbnail":"6.jpg"},"infoLink":"https://play.google.com/store/books/details?id=5Ns3AQAAMAAJ&source=gbs_api"},
+{"title":"Port of Redwood City Levee Project","imageLinks":{"thumbnail":"7.jpg"},"infoLink":"https://play.google.com/store/books/details?id=Qjk0AQAAMAAJ&source=gbs_api"},
+{"title":"Redwood","imageLinks":{"thumbnail":"8.jpg"},"infoLink":"https://play.google.com/store/books/details?id=AfJE_SEiPLQC&source=gbs_api"},
+{"title":"Foothill Blvd, Rogue River and Redwood Hwy, Josephine County","imageLinks":{"thumbnail":"9.jpg"},"infoLink":"https://play.google.com/store/books/details?id=yqw1AQAAMAAJ&source=gbs_api"},
+{"title":"Redwood City","imageLinks":{"thumbnail":"10.jpg"},"infoLink":"http://books.google.com.sg/books?id=WlP8AFci2qwC&dq=redwood&hl=&source=gbs_api"}]
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -50,15 +61,8 @@ class App extends Component {
   }
 
   search() {
-    const API_URL = "https://www.googleapis.com/books/v1/volumes?q=";
-    fetch(
-      `${API_URL}${this.state.title}${this.state.author}${this.state.publisher}`
-    )
-      .then(response => response.json())
-      .then(json => {
-        let { items } = json;
-        this.setState({ items });
-      }); // TODO: Add a catch method here in case the API call fails
+    let items = mockData;
+    this.setState({ items });
   }
 
   render() {
@@ -107,7 +111,7 @@ class App extends Component {
                   }
                 }}
               />
-              <InputGroup.Addon onClick={() => this.search()}>
+              <InputGroup.Addon onClick="search">
                 <Glyphicon glyph="search" />
               </InputGroup.Addon>
             </InputGroup>
