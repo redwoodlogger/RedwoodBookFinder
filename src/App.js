@@ -37,7 +37,7 @@ class App extends Component {
               <FormControl
                 type="text"
                 placeholder="Title"
-                onChange={event => this.setState({ title: event.target.value })}
+                onChange={event => this.setState({ title: "intitle:" + event.target.value })}
                 onKeyPress={event => {
                   if ("Enter" === event.key) {
                     this.search();
