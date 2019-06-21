@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.3",
-    "react": "^16.4.1",
+    "@material-ui/core": "^4.1.1",
+    "react": "^16.8.6",
     "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4",
-    "rrweb": "^0.7.12",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "rrweb": "^0.7.16",
     "rrweb-player": "^0.3.11"
   },
   "scripts": {
