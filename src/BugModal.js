@@ -10,9 +10,6 @@ class AlertDialog extends React.Component {
   render() {
     return (
       <div>
-        <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-          Open alert dialog
-        </Button>
         <Dialog
           open={this.props.open}
           onClose={this.handleClose}
