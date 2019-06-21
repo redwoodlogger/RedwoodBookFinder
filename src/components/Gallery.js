@@ -9,13 +9,12 @@ class Gallery extends Component {
       <div>
         {this.props.items !== undefined &&
           this.props.items.map((item, index) => {
-            let { title, imageLinks, infoLink } = item.volumeInfo;
+            let { title, imageLinks, infoLink } = item;
+            console.log(JSON.stringify({title, imageLinks, infoLink}))
             return (
               <div className="book">
                 <img
-                  src={
-                    undefined !== imageLinks ? imageLinks.thumbnail : { book }
-                  }
+                  src={`${index+1}.jpg`}
                   alt={`Pictured: The cover for the book ${title}.`}
                   className="bookCover"
                 />
