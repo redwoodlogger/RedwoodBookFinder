@@ -5,8 +5,8 @@ import { FormGroup, FormControl, InputGroup, Glyphicon } from "react-bootstrap";
 import Gallery from "./components/Gallery.js";
 import { record } from "rrweb";
 import BugModal from "./BugModal";
-import { Steps, Hints } from "intro.js-react";
-import "intro.js/introjs.css";
+import Driver from "driver.js";
+import "driver.js/dist/driver.min.css";
 
 // We use a two-dimensional array to store multiple events array
 const eventsMatrix = [[]];
@@ -95,44 +95,61 @@ class App extends Component {
       publisher: "",
       items: [],
       openBugModal: false,
-      // introjs states
-      stepsEnabled: true,
-      initialStep: 0,
-      steps: [
-        {
-          element: ".body",
-          intro: "This is a Book Finder app."
-        },
-        {
-          element: ".App-search",
-          intro: "Enter details here and press submit to conduct a search!"
-        }
-      ],
-      hintsEnabled: true,
-      hints: [
-        {
-          element: ".Search-title",
-          hint: "Type title here.",
-          hintPosition: "middle-middle"
-        },
-        {
-          element: ".Search-author",
-          hint: "Type author here.",
-          hintPosition: "middle-middle"
-        },
-        {
-          element: ".Search-publisher",
-          hint: "Type publisher here.",
-          hintPosition: "middle-middle"
-        },
-        {
-          element: ".Search-submit",
-          hint: "Click here or press 'Enter' to search!",
-          hintPosition: "middle-middle"
-        }
-      ]
+      driver: null
     };
   }
+
+  // start of vanilla driver.js style code here
+  componentDidMount() {
+    const newDriver = new Driver();
+    // Define the steps for introduction
+    newDriver.defineSteps([
+      {
+        element: ".App-search",
+        popover: {
+          title: "Welcome to book finder!",
+          description: "This is the search form.",
+          position: "left"
+        }
+      },
+      {
+        element: ".Search-title",
+        popover: {
+          title: "Book Title",
+          description: "Type in the title of the book you want to find here.",
+          position: "left"
+        }
+      },
+      {
+        element: ".Search-author",
+        popover: {
+          title: "Book Author",
+          description: "Type in the author of the book you want to find here.",
+          position: "left"
+        }
+      },
+      {
+        element: ".Search-publisher",
+        popover: {
+          title: "Book Publisher",
+          description:
+            "Type in the publisher of the book you want to find here.",
+          position: "left"
+        }
+      },
+      {
+        element: ".Search-submit",
+        popover: {
+          title: "Search",
+          description: "Press enter or click here to conduct a search.",
+          position: "right"
+        }
+      }
+    ]);
+    //Start the introduction
+    newDriver.start();
+  }
+  // end of vanilla driver.js code
 
   exportJSON = events => {
     const tempEl = document.createElement("a");
@@ -173,41 +190,13 @@ class App extends Component {
   };
 
   render() {
-    const {
-      stepsEnabled,
-      steps,
-      initialStep,
-      hintsEnabled,
-      hints
-    } = this.state;
-
     return (
       <div className="App">
-        <Steps
-          enabled={stepsEnabled}
-          steps={steps}
-          initialStep={initialStep}
-          onExit={this.onExit}
-        />
-        <Hints enabled={hintsEnabled} hints={hints} />
         <header className="App-header">
           <h1 className="App-title">Book Finder</h1>
           <button className="button" onClick={this.submitBug}>
             Report Bug
           </button>
-
-          <div className="controls">
-            <div>
-              <button className="btn tut-btn" onClick={this.toggleSteps}>
-                Help plz
-              </button>
-            </div>
-            <div>
-              <button className="btn hint-btn" onClick={this.toggleHints}>
-                Hints plz
-              </button>
-            </div>
-          </div>
 
           <FormGroup className="App-search">
             <InputGroup>
