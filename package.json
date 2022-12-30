@@ -9,7 +9,7 @@
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.8.6",
     "react-driver.js": "^1.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "rrweb": "^0.7.16",
     "rrweb-player": "^0.3.11",
     "typescript": "^3.5.2"
